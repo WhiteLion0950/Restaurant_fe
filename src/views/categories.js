@@ -1,12 +1,14 @@
 import React from 'react'
-import CardLoadingSection from "../components/cardLoadingSection"
+import CardLoadingSection from "../common/cards/cardLoadingSection"
+import AlertCustom from "../common/alert/alert"
 import {fetchCategories} from './functions/api'
 import {
     Row,
     Col,
-    Card,
+    
 } from 'react-bootstrap'
-
+import Card from "../common/cards/card"
+import{withRouter} from "react-router-dom"
 
 class Categories extends React.Component{
     constructor(props){
@@ -16,13 +18,12 @@ class Categories extends React.Component{
             isError:false,
             data:[]
         }
-        this.fetchData = this.fetchData.bind (this) //bind alla funzione
-         }
-         componentDidMount(){ // metodo invocato quando il componente viene creato
-        this.fetchData()   
-                 
+        this.fetchData = this.fetchData.bind(this) //bind alla funzione
+                                   
     }
-
+ componentDidMount(){
+     this.fetchData()
+ }
          fetchData(){ //la invoco per reperire i dati quando viene creato il componente a cui servono i dati
           //settare lo state
           this.setState({ //mettere il primo stato loading a true
@@ -70,12 +71,12 @@ class Categories extends React.Component{
                         return(
                             
                                 <Col md={4} key={'card_loading_${idx}'}>
-                                    <Card>
+                                    <Card
                                         title={current.title}
                                         subTitle={current.subtitle}
                                         description={current.description}
                                         key={'${idx}_cardIndex'}
-                                    </Card>
+                                    />
 
                                 </Col>
                             
@@ -91,4 +92,4 @@ class Categories extends React.Component{
       )
     }
 }
-export default Categories;
+export default withRouter(Categories);

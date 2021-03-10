@@ -1,5 +1,5 @@
 import React from "react";
-import CardLoading from "../../common/cards/cardLoading";
+import CardLoading from "./cardLoading";
 import {Col, Row} from "react-bootstrap";
 
 const CardLoadingSection = () => (
