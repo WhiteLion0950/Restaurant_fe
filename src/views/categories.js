@@ -1,6 +1,11 @@
 import React from 'react'
-import CardLoadingSection from "../common/cards/cardLoadingSection"
+import CardLoadingSection from "../components/cardLoadingSection"
 import {fetchCategories} from './functions/api'
+import {
+    Row,
+    Col,
+    Card,
+} from 'react-bootstrap'
 
 
 class Categories extends React.Component{
@@ -13,6 +18,10 @@ class Categories extends React.Component{
         }
         this.fetchData = this.fetchData.bind (this) //bind alla funzione
          }
+         componentDidMount(){ // metodo invocato quando il componente viene creato
+        this.fetchData()   
+                 
+    }
 
          fetchData(){ //la invoco per reperire i dati quando viene creato il componente a cui servono i dati
           //settare lo state
@@ -40,12 +49,7 @@ class Categories extends React.Component{
          }
     
 
-    componentDidMount(){ // metodo invocato quando il componente viene creato
-        this.fetchData()
-        
-         
-        
-    }
+    
 
     render(){
         return(
@@ -57,11 +61,27 @@ class Categories extends React.Component{
                 //: //(<p>non sto più caricando</p>) mostrato alla fine del caricamento
                 
                 : this.state.isError ? (
-                    <p>ERRORE</p>
+                    <AlertCustom />
                 )
 
                 : this.state.data ? (
-                   this.
+                <Row>{
+                    this.state.data.map((current,idx)=>{
+                        return(
+                            
+                                <Col md={4} key={'card_loading_${idx}'}>
+                                    <Card>
+                                        title={current.title}
+                                        subTitle={current.subtitle}
+                                        description={current.description}
+                                        key={'${idx}_cardIndex'}
+                                    </Card>
+
+                                </Col>
+                            
+                        )
+                    })
+                   } </Row>
                 )
 
                 : null
