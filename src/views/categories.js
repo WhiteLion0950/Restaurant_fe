@@ -70,12 +70,13 @@ class Categories extends React.Component{
                     this.state.data.map((current,idx)=>{
                         return(
                             
-                                <Col md={4} key={'card_loading_${idx}'}>
+                                <Col md={4} key={"card_loading_"+idx}>
                                     <Card
+                                    urlImg={current.images[0].uri}
                                         title={current.title}
                                         subTitle={current.subtitle}
                                         description={current.description}
-                                        key={'${idx}_cardIndex'}
+                                        key={'cardIndex'+idx}
                                     />
 
                                 </Col>

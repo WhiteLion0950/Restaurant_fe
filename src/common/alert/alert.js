@@ -3,10 +3,8 @@ import { Alert } from "react-bootstrap";
 
 const AlertCustom = () => (
     <Alert variant="danger">
-        <p>
-            Errore!
-        </p>
-    </Alert>
+    <Alert.Heading>Si è verificato un errore</Alert.Heading>
+  </Alert>
 )
 
 export default AlertCustom

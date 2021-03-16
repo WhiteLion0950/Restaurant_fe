@@ -1,8 +1,6 @@
-import logo from './logo.svg';
+import logo from './logo.svg';import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import Categories from './views/categories';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import {
   HashRouter,
   Switch,//permetterci di switchare nelle route che definiamo
@@ -34,5 +32,3 @@ function App() {
 }
 export default App;
 
-//da fare: aggiungere allert nell file categories
-//fare .map per i props e aggiungere le card in 3 colonne

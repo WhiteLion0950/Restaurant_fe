@@ -44,7 +44,11 @@
 }
 
 .navbar {
-  background-color: var(--nav-bg);
+  background-color:rgb(41, 107, 182);      
+}
+.logo{
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .main-content {
@@ -115,4 +119,26 @@
 
 .placeholder-loader-empty {
   color: transparent !important;
+}
+
+/*card*/
+.card-custom{
+  text-align: center;
+  border-radius: 20px;
+  .card-header{
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .card-title.h5{
+    font-size: 20px;
+    color: rgb(65, 65, 65);
+  }
+  .card-text{
+    color: gray;
+  }
+  button.btn.btn-primary{
+    background-color: rgb(26, 181, 243);
+    
+  }
+
 }
