@@ -44,11 +44,27 @@
 }
 
 .navbar {
-  background-color:rgb(41, 107, 182);      
+  background-color:#FF9900; 
+  height: 60px !important;
+  padding: 0!important;     
+}
+.navbar-navbar-expand-lg-navbar-light{
+  height: 80px !important;  
+}
+
+.navbar-expand-lg {
+  ;
+}
+.navbar-collapse{
+  position: left !important;
 }
 .logo{
+  margin-left: 205px !important;
+  color: white !important;
+  font-size: 36px;
   font-weight: 500;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
 }
 
 .main-content {

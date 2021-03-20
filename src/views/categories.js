@@ -72,6 +72,7 @@ class Categories extends React.Component{
                             
                                 <Col md={4} key={"card_loading_"+idx}>
                                     <Card
+                                    callback={()=>{this.props.history.push(`/categories/${current.id}`)}}
                                     urlImg={current.images[0].uri}
                                         title={current.title}
                                         subTitle={current.subtitle}

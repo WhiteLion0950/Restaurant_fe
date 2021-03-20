@@ -2,7 +2,7 @@ import React from "react";
 import CardLoading from "./cardLoading";
 import {Col, Row} from "react-bootstrap";
 
-const CardLoadingSection = () => (
+export const CardLoadingSection = () => (
     <Row>
         {
             Array.apply(null, { length: 12 }).map((_, idx) => (
