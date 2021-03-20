@@ -8,6 +8,7 @@ import {
   Route,  
 } from 'react-router-dom'
 import Category from "./views/category"
+import EveryItem from './views/everyItem'
 import NavbarCustom from './common/navigation/navbar';
 import FooterCustom from './common/footer/footer';
 import Login from './views/login';
@@ -15,33 +16,49 @@ import AuthWrapper from './views/authWrapper';
 
 function App() {
   return (
-    <div className="app">
-      <NavbarCustom />
-      
+    <>      
    <HashRouter>
      <Switch>
        <Route exact path ="/">
-       <AuthWrapper key={"category"}>
+       <AuthWrapper key={"categories"}>
+         <Wrapper>
          <Categories />
+         </Wrapper>
          </AuthWrapper>
        </Route>
 
         <Route exact path ="/categories/:id">
-          
-        <Category />
-       
+         <AuthWrapper key={"category"}>
+           <Wrapper>
+           <Category />
+           </Wrapper>
+         </AuthWrapper>
+        <Route/>
+
+        <Route exact path = '/everyItem'>
+         <AuthWrapper key={'category'}>
+            <Wrapper>
+              <EveryItem/>
+            </Wrapper>
+          </AuthWrapper>       
         </Route>
 
         <Route exact path ="/login">
         <Login />
         </Route>
-
-     </Switch>
-   </HashRouter>
-   
-   <FooterCustom />
-   </div>
-  )
+   </Switch>
+     </HashRouter>
+    <FooterCustom />
+   </>
+  );
 }
+const Wrapper = (props) => (
+  <>
+      <NavbarCustom/>
+      <FooterCustom/>
+      {props.children}
+      
+  </>
+)
 export default App;
 
