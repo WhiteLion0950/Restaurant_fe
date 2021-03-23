@@ -1,7 +1,7 @@
 import React from "react";
 import { Card as CardCustom } from "react-bootstrap";
 
-export const CardProducts = ({ title, subtitle, description, image }) => {
+export const CardProducts = ({ title, subtitle, description, image, callback, buttonText }) => {
   return (
     <CardCustom className="card-custom">
       <CardCustom.Img variant="top" src={image} />
@@ -9,6 +9,7 @@ export const CardProducts = ({ title, subtitle, description, image }) => {
       <CardCustom.Body>
         <CardCustom.Title>{subtitle}</CardCustom.Title>
         <CardCustom.Text>{description}</CardCustom.Text>
+        <button onClick={()=>callback()}>{buttonText}</button>
       </CardCustom.Body>
     </CardCustom>
   );

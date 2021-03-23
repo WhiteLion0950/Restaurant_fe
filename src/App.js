@@ -13,10 +13,13 @@ import NavbarCustom from './common/navigation/navbar';
 import FooterCustom from './common/footer/footer';
 import Login from './views/login';
 import AuthWrapper from './views/authWrapper';
-
+import {store, persistor} from'./redux/store'
+import {Provider} from 'react-redux'
+import {PersistGate} from  'redux-persist/integration/react'
 function App() {
   return (
-    <>      
+    <Provider store={store}>
+       <PersistGate persistor={persistor}>
    <HashRouter>
      <Switch>
        <Route exact path ="/">
@@ -33,7 +36,7 @@ function App() {
            <Category />
            </Wrapper>
          </AuthWrapper>
-        <Route/>
+        </Route>
 
         <Route exact path = '/everyItem'>
          <AuthWrapper key={'category'}>
@@ -49,7 +52,8 @@ function App() {
    </Switch>
      </HashRouter>
     <FooterCustom />
-   </>
+    </PersistGate>
+   </Provider>
   );
 }
 const Wrapper = (props) => (

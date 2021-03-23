@@ -1,9 +1,9 @@
 import React from "react";
-import { fetchEveryItem } from "../functions/api";
-import CardLoadingSection from "../common/cardLoadingSection";
-import Alert from "../common/alert";
+import { fetchEveryItem } from "../views/functions/api";
+import CardLoadingSection from "../common/cards/cardLoadingSection";
+import AlertCustom from "../common/alert/alert";
 import { Row, Col } from "react-bootstrap";
-import CardEveryItem from "../common/cardEveryItem";
+import CardEveryItem from "../common/cards/cardEveryItem";
 
 class EveryItem extends React.Component {
   constructor(props) {
@@ -52,7 +52,7 @@ class EveryItem extends React.Component {
           </>
         ) : this.state.isError ? (
           <>
-            <Alert />
+            <AlertCustom />
           </>
         ) : this.state.data ? (
           <>

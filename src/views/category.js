@@ -5,6 +5,8 @@ import { CardProducts } from "../common/cards/cardProduct";
 import { CardLoadingSection } from "../common/cards/cardLoadingSection";
 import { AlertCustom } from "../common/alert/alert";
 import { Row, Col } from "react-bootstrap";
+import { addProduct, removeProduct } from "../redux/actions";
+import { connect } from "react-redux";
 
 class Category extends React.Component {
   constructor(props) {
@@ -63,6 +65,16 @@ class Category extends React.Component {
                       description={curr.description}
                       image={curr.images[0].uri}
                       id={idx}
+                      buttonText= {this.props.basket.find(x=>x.id==curr.id)?"rimuovi dal carrello":"aggiungi al carrello"}
+                      callback={()=>{
+                        if(this.props.basket.find(x=>x.id==curr.id)){
+                          this.props.removeProduct(curr.id)
+                        }else{
+                          this.props.addProduct(curr)
+                        }
+                      }
+                     
+                      }
                     />
                   </Col>
                 );
@@ -74,4 +86,12 @@ class Category extends React.Component {
     );
   }
 }
-export default withRouter(Category);
+const mapActionToProps={
+  addProduct: product=>addProduct(product),
+  removeProduct: product=>removeProduct(product)
+}
+const mapStateToProps = state=>({
+  basket: state.basket
+})
+
+export default connect(mapStateToProps,mapActionToProps) (withRouter(Category));

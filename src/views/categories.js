@@ -6,6 +6,8 @@ import { Row, Col } from "react-bootstrap";
 import Card from "../common/cards/card";
 import { withRouter } from "react-router-dom";
 import img from "../common/img/reactApphero.png";
+import {connect} from "react-redux";
+import { addCounter, decrementCounter, setCounter } from "../redux/actions";
 
 class Categories extends React.Component {
   constructor(props) {
@@ -50,6 +52,17 @@ class Categories extends React.Component {
   render() {
     return (
       <>
+      <p>il counter è :{this.props.counter}</p>
+      <button onClick={()=>this.props.addCounter()} >Incrementa</button>
+      <button onClick={()=>this.props.decrementCounter()} >Decrementa</button>
+      <input
+         type="number"
+         onChange={event=>{ 
+           console.warn(event)
+           this.props.setCounter(parseInt(event.target.value))
+        }}
+         value={this.props.counter}
+      />
         {
           //stati per definire il caricamento
           this.state.isLoading ? (
@@ -74,6 +87,7 @@ class Categories extends React.Component {
                         subTitle={current.subtitle}
                         description={current.description}
                         key={"cardIndex" + idx}
+                        
                       />
                     </Col>
                   );
@@ -86,4 +100,17 @@ class Categories extends React.Component {
     );
   }
 }
-export default withRouter(Categories);
+
+const mapActionsToProps={ //azioni per il contatore
+  addCounter:()=>addCounter(),
+  decrementCounter:()=>decrementCounter(),
+  setCounter:(value)=>setCounter(value)
+}
+const mapStateToProps = state=>({
+  counter: state.counter
+})
+
+export default connect (
+  mapStateToProps,
+  mapActionsToProps
+)(withRouter(Categories));

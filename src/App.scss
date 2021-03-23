@@ -42,7 +42,11 @@
     transform: rotate(360deg);
   }
 }
-
+.hero{
+  width: 1000px !important;
+ 
+  margin-bottom: 50px;
+}
 .navbar {
   background-color:#FF9900; 
   height: 60px !important;
@@ -50,6 +54,7 @@
 }
 .navbar-navbar-expand-lg-navbar-light{
   height: 80px !important;  
+  padding-right: 500px !important;
 }
 
 .navbar-expand-lg {
