@@ -65,7 +65,7 @@ class Category extends React.Component {
                       description={curr.description}
                       image={curr.images[0].uri}
                       id={idx}
-                      buttonText= {this.props.basket.find(x=>x.id==curr.id)?"rimuovi dal carrello":"aggiungi al carrello"}
+                      buttonText= {this.props.basket.find(x=>x.id==curr.id)?"Rimuovi dal Carrello":"Aggiungi al Carrello"}
                       callback={()=>{
                         if(this.props.basket.find(x=>x.id==curr.id)){
                           this.props.removeProduct(curr.id)

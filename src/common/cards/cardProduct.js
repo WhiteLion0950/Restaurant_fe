@@ -9,7 +9,7 @@ export const CardProducts = ({ title, subtitle, description, image, callback, bu
       <CardCustom.Body>
         <CardCustom.Title>{subtitle}</CardCustom.Title>
         <CardCustom.Text>{description}</CardCustom.Text>
-        <button onClick={()=>callback()}>{buttonText}</button>
+        <button onClick={()=>callback() }className="buttonCart">{buttonText}</button> 
       </CardCustom.Body>
     </CardCustom>
   );

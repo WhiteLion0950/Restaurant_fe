@@ -7,7 +7,7 @@ import {
 
 const FooterCustom = () => {
     return (
-        <footer className="fixed-bottom bg-light text-center">
+        <footer className="fixed-bottom  text-center">
             <Container className="footer-style">
                 <Row>
                     <Col sm={6} xs={12}>&copy; 2021 Copyright</Col>

@@ -35,7 +35,10 @@ class Login extends React.Component{
 
     render(){
         return(
+          
         <Container fluid ="sm">
+          <h1 className="h1log">Benvenuto</h1>
+          <h3 className="sublog">Per entrare effettua il Login</h3>
             <Form onSubmit={this.onSubmit}>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
@@ -64,7 +67,7 @@ class Login extends React.Component{
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="submit"className="btnLogin">
     Submit
   </Button>
 </Form>

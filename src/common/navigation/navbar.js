@@ -14,20 +14,20 @@ import {connect} from 'react-redux'
 const NavbarCustom = (props) => {
     return (
         <div className="navbar">
-        <Navbar expand="lg">
+        <Navbar expand="lg" class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
             <Navbar.Brand href="" className="logo">Restaurant IFTS</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 
                 <Nav>
-                    <Nav.Link href="">Home</Nav.Link>
-                    <Nav.Link href="">Panini</Nav.Link>
-                    <Nav.Link href="">Offerte {props.counter}</Nav.Link>
+                    <Nav.Link href="#/">Home</Nav.Link>
+                    <Nav.Link href="#categories/2">Panini</Nav.Link>
+                    <Nav.Link href="#categories/23">Offerte {props.counter}</Nav.Link>
                     <Nav.Link href="">Numero elementi Carrello {props.numberCart}</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Cerca" className="mr-sm-2" />
-                    <Button variant="primary">cerca</Button>
+                    <Button className="buttonNav">Cerca</Button>
                 </Form>
             </Navbar.Collapse>
         </Navbar>

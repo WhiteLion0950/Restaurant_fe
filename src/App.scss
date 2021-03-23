@@ -1,11 +1,14 @@
-:root {
-  --nav-bg: #7ab317;
-  --gray-light: #F8F8F8;
-  --raiud: 20px
+#root{
+  margin: 0;
+  background-color: #ffd494a9;
+  max-width: 100%;
+  overflow-x: hidden;
 }
+
 
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -42,35 +45,7 @@
     transform: rotate(360deg);
   }
 }
-.hero{
-  width: 1000px !important;
- 
-  margin-bottom: 50px;
-}
-.navbar {
-  background-color:#FF9900; 
-  height: 60px !important;
-  padding: 0!important;     
-}
-.navbar-navbar-expand-lg-navbar-light{
-  height: 80px !important;  
-  padding-right: 500px !important;
-}
 
-.navbar-expand-lg {
-  ;
-}
-.navbar-collapse{
-  position: left !important;
-}
-.logo{
-  margin-left: 205px !important;
-  color: white !important;
-  font-size: 36px;
-  font-weight: 500;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  
-}
 
 .main-content {
   max-width: 1344px;
@@ -142,13 +117,64 @@
   color: transparent !important;
 }
 
+/*Hero*/
+.hero{
+  width: 1000px ; 
+  
+  display:block;
+  margin: auto;
+  margin-bottom: 2rem;
+  text-align:center;
+}
+.heroCategory{
+  width: 1500px ; 
+  display:block;
+  margin:2rem auto;
+  text-align:center;  
+}
+/*Navbar*/
+.navbar {
+  background-color:#FF9900; 
+  height: 60px !important;
+  padding: 0!important;    
+}
+.navbar-navbar-expand-lg-navbar-light{
+  height: 80px !important;  
+  padding-right: 500px !important;
+}
+.navbar-collapse{
+  position: left !important;
+}
+.logo{
+  margin-left: 205px !important;
+  color: white !important;
+  font-size: 36px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  
+}
+.buttonNav{
+  background-color: #f8ad3c;
+    border:none;
+}
+
 /*card*/
 .card-custom{
   text-align: center;
-  border-radius: 20px;
+  
+  border: none;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 80px;
+  margin-left: 30px;
+  margin-right: 30px;
+  align-items: stretch;
   .card-header{
     font-size: 30px;
     font-weight: 700;
+    background-color: #FF9900;
+  
+  color: white !important;
+  font-size: 30px;
   }
   .card-title.h5{
     font-size: 20px;
@@ -156,10 +182,78 @@
   }
   .card-text{
     color: gray;
-  }
-  button.btn.btn-primary{
-    background-color: rgb(26, 181, 243);
     
   }
+  button.btn.btn-primary{
+    background-color: #FF9900;
+    border: none;            
+  }
+  .btn-primary:hover{
+    color:#FF9900 important !important;
+    background-color: white;
+  }
+.card-body{
+  background-color: #fac26d;
+  color: rgba(0, 0, 0, 0.705) !important;
+  
+}
+.col-md-3{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+}
+.buttonCart{
+  background-color: #FF9900;
+  border:none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 500;
+}
+/*Footer*/
+.fixed-bottom{
+  background-color: #FF9900;
+}
+/*Login*/
+.form-group{
+  margin: 50px;
+  margin-bottom: 100px;
+  
+}
+.btnLogin{
+    background-color: #FF9900;
+    border: none; 
+    margin-bottom: 250px;
+    
+  }
+  .btnLogin:hover{
+    color:#FF9900 ;
+    background-color: white;    
+  }
 
+.h1log{
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 70px;
+}
+.sublog{
+  text-align: center;
+  color: rgb(75, 75, 75);
+}
+.form-label{
+  font-size: 25px;
+}
+/*Alert*/
+.alert{
+  text-align: center;
+  padding: 50px;
+  margin: 50px;
+  margin-bottom: 500px;
+  .alert-heading{
+    font-size: 50px;
+  }
+  .alertdescription{
+    font-size: 30px;
+  }
 }
