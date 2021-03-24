@@ -16,6 +16,7 @@ import AuthWrapper from './views/authWrapper';
 import {store, persistor} from'./redux/store'
 import {Provider} from 'react-redux'
 import {PersistGate} from  'redux-persist/integration/react'
+import Carrello from './common/cards/carrelloProdotti';
 function App() {
   return (
     <Provider store={store}>
@@ -47,7 +48,13 @@ function App() {
         </Route>
 
         <Route exact path ="/login">
-        <Login />
+        <Login />        
+        </Route><Route extract path='/cart'>
+          <AuthWrapper key={'cart'}>
+            <Wrapper>
+              <Carrello/>
+            </Wrapper>
+          </AuthWrapper>
         </Route>
    </Switch>
      </HashRouter>

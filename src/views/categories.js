@@ -51,18 +51,7 @@ class Categories extends React.Component {
 
   render() {
     return (
-      <>
-      <p>il counter è :{this.props.counter}</p>
-      <button onClick={()=>this.props.addCounter()} >Incrementa</button>
-      <button onClick={()=>this.props.decrementCounter()} >Decrementa</button>
-      <input
-         type="number"
-         onChange={event=>{ 
-           console.warn(event)
-           this.props.setCounter(parseInt(event.target.value))
-        }}
-         value={this.props.counter}
-      />
+      <>      
         {
           //stati per definire il caricamento
           this.state.isLoading ? (
