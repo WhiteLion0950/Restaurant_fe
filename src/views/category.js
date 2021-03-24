@@ -5,7 +5,7 @@ import { CardProducts } from "../common/cards/cardProduct";
 import { CardLoadingSection } from "../common/cards/cardLoadingSection";
 import { AlertCustom } from "../common/alert/alert";
 import { Row, Col } from "react-bootstrap";
-import { addProduct, removeProduct } from "../redux/actions";
+import { addProduct, removeProduct,addProductToBasket,removeProductFromBasket } from "../redux/actions";
 import { connect } from "react-redux";
 
 class Category extends React.Component {
@@ -56,7 +56,7 @@ class Category extends React.Component {
           <>
             <img src={this.state.data.images[0].uri} className="heroCategory" />
             <Row>
-              {this.state.data.products.map((curr, idx) => {
+              {this.state.data.products.map((curr, idx) => { const quantity = this.props.basket.find(x=>x.product.id===curr.id)
                 return (
                   <Col md={3} key={`card_${idx}`}>
                     <CardProducts
@@ -65,7 +65,10 @@ class Category extends React.Component {
                       description={curr.description}
                       image={curr.images[0].uri}
                       id={idx}
-                      buttonText= {this.props.basket.find(x=>x.id==curr.id)?"Rimuovi dal Carrello":"Aggiungi al Carrello"}
+                      qnt={(quantity!==undefined)? quantity.qnt:0}
+                      //buttonText= {this.props.basket.find(x=>x.id==curr.id)?"Rimuovi dal Carrello":"Aggiungi al Carrello"}
+                      addProductToBasket={()=>{this.props.addProductToBasket(1,curr)}}
+                      removeProductFromBasket={()=>{this.props.removeProductFromBasket(1, curr.id)}}
                       callback={()=>{
                         if(this.props.basket.find(x=>x.id==curr.id)){
                           this.props.removeProduct(curr.id)
@@ -87,8 +90,8 @@ class Category extends React.Component {
   }
 }
 const mapActionToProps={
-  addProduct: product=>addProduct(product),
-  removeProduct: product=>removeProduct(product)
+  addProductToBasket: (qnt,product)=>addProductToBasket(qnt,product),
+  removeProductFromBasket: (qnt,id)=>removeProductFromBasket(qnt,id)
 }
 const mapStateToProps = state=>({
   basket: state.basket

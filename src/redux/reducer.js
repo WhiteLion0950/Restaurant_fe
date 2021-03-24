@@ -1,10 +1,10 @@
-import { ADD_PRODUCT, DECREMENT_COUNTER, INCREMENT_COUNTER, REMOVE_PRODUCT, SET_COUNTER } from "./actionTypes";
+import { ADD_PRODUCT, ADD_PRODUCT_TO_BASKET, DECREMENT_COUNTER, INCREMENT_COUNTER, REMOVE_PRODUCT, REMOVE_PRODUCT_FROM_BASKET, SET_COUNTER } from "./actionTypes";
 
 const initialState = {
     counter: 0,
     basket: []
 }
-export default function(state=initialState, action){
+/*export default function(state=initialState, action){
     switch(action.type){
         case INCREMENT_COUNTER: 
         return {
@@ -35,5 +35,43 @@ export default function(state=initialState, action){
                     basket:state.basket.filter(x=>x.id!=action.payload)
                 }
             default: return state
+    }
+}*/
+
+
+export default function(state :{basket:[]} = initialState, action){
+    switch(action.type){
+        case ADD_PRODUCT_TO_BASKET:
+            return{
+                ...state,
+                basket: state.basket.find(x=> x.product.id === action.payload.product.id) ?
+                 state.basket.reduce((acc, curr)=>{
+                     if (curr.product.id===action.payload.product.id){
+                         curr.qnt = curr.qnt + action.payload.qnt
+                        }
+                        acc.push(curr)
+                        return acc
+                 }, []) : [
+                     ...state.basket,
+                     action.payload
+                 ]
+            }
+        case REMOVE_PRODUCT_FROM_BASKET:
+            return{
+                ...state,
+                basket: state.basket.reduce((acc, curr)=> {
+                    if (curr.product.id===action.payload.id){
+                        if (curr.qnt >1){
+                            curr.qnt = curr.qnt -1
+                            acc.push(curr)
+                        }
+                    }else
+                         acc.push(curr)
+
+                         return acc
+                }, [])
+            }
+          default:
+              return state  
     }
 }

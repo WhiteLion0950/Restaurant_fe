@@ -11,6 +11,7 @@ export const CardEveryItem = ({title,subtitle,description,img, id,goTo,category}
         <CardBootstrap.Subtitle>{subtitle}</CardBootstrap.Subtitle>
         <CardBootstrap.Text>{description}</CardBootstrap.Text>
         <Button onClick={()=>goTo()}>{category}</Button>
+        
         </CardBootstrap.Body>
         </CardBootstrap>
     )
