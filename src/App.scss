@@ -223,6 +223,29 @@ margin-left: 20rem;
   padding: 5px;
   font-weight: 500;
 }
+.lablecalorie{
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+.chartjs-render-monitor{
+  max-width: 800px;
+  max-height: 800px; 
+  margin: 0;
+}
+.dettaglioProdottiSezione{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 150px;
+}
+.tabellaValori{
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(65, 65, 65);
+  
+}
+
 /*Footer*/
 .fixed-bottom{
   background-color: #FF9900;

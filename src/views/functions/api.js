@@ -11,6 +11,12 @@ export const fetchCategory = (id) => {
 export const fetchEveryItem = () => {
   return fetchWrapper("https://apirestaurant.mvlabs.it/api/products", "GET");
 };
+export const fetchDettaglioProdotti = (id) => {
+  return fetchWrapper(
+    `https://apirestaurant.mvlabs.it/api/products/${id}`,
+    "GET"
+  );
+};
 export const postLogin = (body) => {
   return fetchWrapper(
     "https://apirestaurant.mvlabs.it/api/login",
@@ -18,6 +24,7 @@ export const postLogin = (body) => {
     body
   );
 };
+
 // postLogin fa una chimata di tipo POST e passa all'endpoit username e password
 // quando facciamo la chiamata e gli passiamo i valori di usrn e pswd, gli passiamo i valori di this.state (da login.js)
 // che contengono username e password.

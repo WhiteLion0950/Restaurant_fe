@@ -9,6 +9,7 @@ import{withRouter} from'react-router-dom';
 const Carrello=(props)=>(
     
     <div className="boxTable" align="center">
+        <h2>Il tuo Carrello</h2>
         <table className="table">
             <thead>
                 <tr>
@@ -33,7 +34,7 @@ const Carrello=(props)=>(
             <tfoot>
                 <tr>
                     <th className="thTab">
-                        Totale : <FontAwesomeIcon icon={faEuroSign}/>{props.basket.reduce((acc,curr)=>acc+(curr.qnt*curr.product.price),0)}
+                        Totale : <FontAwesomeIcon icon={faEuroSign}/>{props.basket.reduce((acc,curr)=>acc+(curr.qnt*curr.product.price),0).toFixed(2)}
                     </th>
                 </tr>
             </tfoot>

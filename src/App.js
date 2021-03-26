@@ -17,6 +17,7 @@ import {store, persistor} from'./redux/store'
 import {Provider} from 'react-redux'
 import {PersistGate} from  'redux-persist/integration/react'
 import Carrello from './common/cards/carrelloProdotti';
+import CardDetails from '../src/common/cards/dettaglioProdotti'
 function App() {
   return (
     <Provider store={store}>
@@ -43,6 +44,14 @@ function App() {
          <AuthWrapper key={'category'}>
             <Wrapper>
               <EveryItem/>
+            </Wrapper>
+          </AuthWrapper>       
+        </Route>
+
+        <Route exact path = '/details/:id'>
+         <AuthWrapper key={'dettaglio'}>
+            <Wrapper>
+              <CardDetails/>
             </Wrapper>
           </AuthWrapper>       
         </Route>

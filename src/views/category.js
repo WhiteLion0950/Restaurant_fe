@@ -73,6 +73,7 @@ class Category extends React.Component {
                       description={curr.description}
                       image={curr.images[0].uri}
                       id={idx}
+                      goToDetails={()=>this.props.history.push(`/details/${curr.id}`)}
                       price={curr.price}
                       qnt={quantity !== undefined ? quantity.qnt : 0}
                       //buttonText= {this.props.basket.find(x=>x.id==curr.id)?"Rimuovi dal Carrello":"Aggiungi al Carrello"}

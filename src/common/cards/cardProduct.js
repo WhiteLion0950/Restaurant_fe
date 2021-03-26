@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Card as CardCustom } from "react-bootstrap";
 import { faMinusCircle, faPlusCircle,faEuroSign } from "@fortawesome/free-solid-svg-icons";
-
+import {Button} from 'react-bootstrap'
 export const CardProducts = ({
   title,
   subtitle,
@@ -14,6 +14,7 @@ export const CardProducts = ({
   removeProductFromBasket,
   qnt,
   price,
+  goToDetails
 }) => {
   return (
     <CardCustom className="card-custom">
@@ -23,6 +24,9 @@ export const CardProducts = ({
         <CardCustom.Title>{subtitle}</CardCustom.Title>
         <CardCustom.Text>{description}</CardCustom.Text>
         <CardCustom.Text>{price}<FontAwesomeIcon icon={faEuroSign}></FontAwesomeIcon></CardCustom.Text>
+        <Button onClick={()=>goToDetails()}>Vai alla Scheda</Button> 
+        <br></br>
+        <br></br>
         <FontAwesomeIcon
           icon={faPlusCircle}
           size="lg"
