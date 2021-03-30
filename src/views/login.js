@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Container, Form , Button }from "react-bootstrap"
 import {withRouter} from "react-router"
 import { postLogin } from './functions/api'
+import {ShowPassword} from "../hooks/showPassword"
+
 class Login extends React.Component{
     constructor(props){
         super(props);
 
         this.state ={
-            email: "",
+            username: "",
             password: "",
         }
         this.handleChangeInput=this.handleChangeInput.bind(this);
@@ -43,10 +45,10 @@ class Login extends React.Component{
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control 
-    type="email" 
+     
     onChange={this.handleChangeInput}
-    name="email"
-    placeholder="Enter email"
+    name="username"
+    placeholder="Enter Name"
     required
      />
     <Form.Text className="text-muted">
@@ -57,13 +59,16 @@ class Login extends React.Component{
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
     <Form.Control 
-    type="password" 
-    onChange={this.handleChangeInput} 
+    type={passwordShown ? "password" : "text"}
+        onChange={this.handleChangeInput} 
     name="password" 
     placeholder="Password"
     required
+    
     />
+    <Button className="btnPassword" onClick={ShowPassword}>Mostra Password</Button>
   </Form.Group>
+  
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
