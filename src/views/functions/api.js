@@ -24,6 +24,12 @@ export const postLogin = (body) => {
     body
   );
 };
+export const fetchOrders =()=>{
+  return fetchWrapper("https://apirestaurant.mvlabs.it/api/orders", "GET")
+};
+export const postCreateOrders =(body)=>{
+  return fetchWrapper("https://apirestaurant.mvlabs.it/api/orders", "POST", body)
+};
 
 // postLogin fa una chimata di tipo POST e passa all'endpoit username e password
 // quando facciamo la chiamata e gli passiamo i valori di usrn e pswd, gli passiamo i valori di this.state (da login.js)

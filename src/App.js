@@ -11,13 +11,16 @@ import Category from "./views/category"
 import EveryItem from './views/everyItem'
 import NavbarCustom from './common/navigation/navbar';
 import FooterCustom from './common/footer/footer';
-import Login from './views/login';
+import Login from './views/login/login';
 import AuthWrapper from './views/authWrapper';
 import {store, persistor} from'./redux/store'
 import {Provider} from 'react-redux'
 import {PersistGate} from  'redux-persist/integration/react'
-import Carrello from './common/cards/carrelloProdotti';
-import CardDetails from '../src/common/cards/dettaglioProdotti'
+import Carrello from './views/cart/carrelloProdotti';
+import Details from '../src/views/dettaglioProdotti'
+import Ordini from './views/cart/ordini'
+import Storico from './views/cart/storico'
+
 function App() {
   return (
     <Provider store={store}>
@@ -51,17 +54,32 @@ function App() {
         <Route exact path = '/details/:id'>
          <AuthWrapper key={'dettaglio'}>
             <Wrapper>
-              <CardDetails/>
+              <Details/>
             </Wrapper>
           </AuthWrapper>       
         </Route>
 
         <Route exact path ="/login">
         <Login />        
-        </Route><Route extract path='/cart'>
+        </Route>
+        <Route extract path='/cart'>
           <AuthWrapper key={'cart'}>
             <Wrapper>
               <Carrello/>
+            </Wrapper>
+          </AuthWrapper>
+        </Route>
+        <Route extract path='/storico'>
+          <AuthWrapper key={'storico'}>
+            <Wrapper>
+              <Storico/>
+            </Wrapper>
+          </AuthWrapper>
+        </Route>
+        <Route extract path='/ordini'>
+          <AuthWrapper key={'ordini'}>
+            <Wrapper>
+              <Ordini/>
             </Wrapper>
           </AuthWrapper>
         </Route>

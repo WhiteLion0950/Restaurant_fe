@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, ADD_PRODUCT_TO_BASKET, DECREMENT_COUNTER, INCREMENT_COUNTER, REMOVE_PRODUCT, REMOVE_PRODUCT_FROM_BASKET, SET_COUNTER } from "./actionTypes";
+import { ADD_PRODUCT, ADD_PRODUCT_TO_BASKET, DECREMENT_COUNTER, INCREMENT_COUNTER, REMOVE_PRODUCT, REMOVE_PRODUCT_FROM_BASKET, SET_COUNTER,DELETE_BASKET } from "./actionTypes";
 
 const initialState = {
     counter: 0,
@@ -71,6 +71,11 @@ export default function(state :{basket:[]} = initialState, action){
                          return acc
                 }, [])
             }
+            case DELETE_BASKET:
+                return {
+                    ...state,
+                    basket: []
+                }
           default:
               return state  
     }

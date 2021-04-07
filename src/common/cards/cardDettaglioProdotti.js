@@ -1,7 +1,9 @@
 import React from 'react'
 import {Pie} from 'react-chartjs-2';
 import {Card as CardBootstrap} from 'react-bootstrap'
+
 const CardDetails =(props)=>{
+    console.log(props.kcal)
    return(
        <div className="dettaglioProdottiSezione">      
         <table className="tabellaValori">

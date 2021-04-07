@@ -1,8 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, {useState} from 'react'
 import {Container, Form , Button }from "react-bootstrap"
 import {withRouter} from "react-router"
-import { postLogin } from './functions/api'
-import {ShowPassword} from "../hooks/showPassword"
+import { postLogin } from '../functions/api'
+
+import { faEyeSlash , faEye } from "@fortawesome/free-solid-svg-icons"
 
 class Login extends React.Component{
     constructor(props){
@@ -11,9 +13,16 @@ class Login extends React.Component{
         this.state ={
             username: "",
             password: "",
+            hidden: true
         }
         this.handleChangeInput=this.handleChangeInput.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.toggleShow= this.toggleShow.bind(this);
+    }
+    toggleShow() {
+
+      this.setState({ hidden: !this.state.hidden });
+
     }
     handleChangeInput (event){
         const name =event.target.name;
@@ -23,6 +32,7 @@ class Login extends React.Component{
             [name]:value 
         })
     }
+    
 
     onSubmit(event){
         event.preventDefault()
@@ -34,6 +44,7 @@ class Login extends React.Component{
             console.warn(err)
         })
     }
+   
 
     render(){
         return(
@@ -57,16 +68,16 @@ class Login extends React.Component{
   </Form.Group>
 
   <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
+    <Form.Label>Password <FontAwesomeIcon icon ={this.state.hidden ? faEyeSlash :faEye} onClick ={this.toggleShow}/></Form.Label>
     <Form.Control 
-    type={passwordShown ? "password" : "text"}
+    type={ this.state.hidden ? 'password' : 'text'}
         onChange={this.handleChangeInput} 
     name="password" 
     placeholder="Password"
     required
     
     />
-    <Button className="btnPassword" onClick={ShowPassword}>Mostra Password</Button>
+    
   </Form.Group>
   
   <Form.Group controlId="formBasicCheckbox">
