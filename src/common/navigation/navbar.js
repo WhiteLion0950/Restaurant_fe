@@ -22,7 +22,7 @@ const NavbarCustom = (props) => {
           <Nav>
             <Nav.Link href="#/">Home</Nav.Link>
             <Nav.Link href="#categories/2">Panini</Nav.Link>
-            <Nav.Link href="#categories/23">Offerte</Nav.Link>
+            
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Cerca" className="mr-sm-2" />
