@@ -22,7 +22,6 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
->>>>>>> 3270cc1e18b7c5a3b5dff812c7c8dfbb122dde0d
     "react-vis": "^1.11.7",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
